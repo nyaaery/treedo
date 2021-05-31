@@ -1,0 +1,15 @@
+{
+  "name": "treedo_server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "compiled/index.js",
+  "scripts": {
+    "build": "tsc",
+    "run": "npm run-script build && node ."
+  },
+  "author": "Aery",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "typescript": "^4.3.2"
+  }
+}

@@ -1,0 +1,9 @@
+{
+    "compilerOptions": {
+        "outDir": "compiled",
+        "moduleResolution": "node",
+        "target": "esnext",
+        "module": "esnext"
+    },
+    "include": [ "src/**/*.d.ts", "src/**/*.ts" ]
+}
