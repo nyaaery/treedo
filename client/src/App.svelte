@@ -1,20 +1,12 @@
 <script lang="ts">
-    import { onMount } from "svelte";
-    import { NodeManager } from "./NodeManager";
-    import type { Node } from "./NodeManager";
-
-    const manager: NodeManager = new NodeManager();
-    let nodes: Node[] = [];
-
-    onMount(() => {
-        manager.nodes.subscribe(value => {
-            nodes = value;
-        });
-        manager.get_nodes();
-    });
+    import Node from "./Node.svelte";
+    import { BehaviorSubject } from "rxjs";
 </script>
 
-<h1>Hello owo</h1>
-{#each nodes as node}
-    {node.content}<br>
-{/each}
+<Node node={{
+    id: "test",
+    pos: new BehaviorSubject([ 0, 0 ]),
+    content: new BehaviorSubject("Todo"),
+    children: new BehaviorSubject([]),
+    size: [ 0, 0 ]
+}} />
