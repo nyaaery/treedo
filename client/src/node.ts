@@ -7,5 +7,5 @@ export interface Node {
     pos: BehaviorSubject<Vec2<number>>,
     content: BehaviorSubject<string>,
     children: BehaviorSubject<Node[]>
-    size: Vec2<number>
+    size: Vec2<number> | null
 }

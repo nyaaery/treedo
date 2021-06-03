@@ -6,8 +6,13 @@
     export let editing: boolean = false;
     
     const { content, children } = node;
+    let style: string;
     let el: HTMLDivElement;
     let input_el: HTMLInputElement;
+
+    node.pos.subscribe(value => {
+        style = `left: ${value[0]}px; top: ${value[1]}px;`;
+    });
 
     onMount(() => {
         const rect = el.getBoundingClientRect();
@@ -37,7 +42,7 @@
     }
 </script>
 
-<div bind:this={el}>
+<div data-id={node.id} style={style} bind:this={el}>
     {#if editing}
         <input type="text" value={$content} bind:this={input_el} on:keydown={on_keydown} on:blur={on_blur}>
     {:else}
@@ -47,10 +52,15 @@
 
 <style>
     div {
+        position: absolute;
         display: inline-block;
         min-width: 20vw;
         max-width: 50vw;
-        padding: 10px;
+        padding: 1vmin;
         border: 1px solid black;
+    }
+
+    div * {
+        font-size: 1em;
     }
 </style>
