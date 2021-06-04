@@ -1,6 +1,9 @@
 <script lang="ts">
-    import { BehaviorSubject } from "rxjs";
-    import type { Node } from "./node";
+    import type { Tree } from "./tree";
+    
+    import RootComponent from "./Root.svelte";
 
-    const nodes: BehaviorSubject<Map<string, Node>> = new BehaviorSubject(new Map());
+    export let tree: Tree;
 </script>
+
+<RootComponent root={tree.root} />
